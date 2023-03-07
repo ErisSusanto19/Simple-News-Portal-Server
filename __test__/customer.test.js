@@ -271,7 +271,7 @@ describe("API News", () => {
             expect(response.body).toHaveProperty("updatedAt", expect.any(String))
             expect(response.body).toHaveProperty("Category", expect.any(Object))
             expect(response.body).toHaveProperty("Author", expect.any(Object))
-            expect(response.body).toHaveProperty("QRCode", expect.any(String))
+            // expect(response.body).toHaveProperty("QRCode", expect.any(String))
             expect(response.body.Category).toHaveProperty("name", expect.any(String))
             expect(response.body.Author).toHaveProperty("username", expect.any(String))
         })

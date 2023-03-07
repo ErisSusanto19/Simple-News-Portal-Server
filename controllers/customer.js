@@ -122,6 +122,7 @@ class Controller {
 
     static async showNewsById(req, res, next){
         try {
+            console.log(req.params.newsId, '<<<<<< cek id');
             const { newsId } = req.params
             const news = await News.findByPk(newsId, {
                 include: [
@@ -136,20 +137,20 @@ class Controller {
                 url = req.headers.sharepath
             }
 
-            const { data } = await axios({
-                method: "GET",
-                url: "https://api.happi.dev/v1/qrcode",
-                headers: {
-                    "x-happi-key": HAPPIDEV_QRCODE,
-                    "Accept-encoding": "application/json"
-                },
-                params: {
-                    // data: "ok"
-                    data: url
-                }
-            })
+            // const { data } = await axios({
+            //     method: "GET",
+            //     url: "https://api.happi.dev/v1/qrcode",
+            //     headers: {
+            //         "x-happi-key": HAPPIDEV_QRCODE,
+            //         "Accept-encoding": "application/json"
+            //     },
+            //     params: {
+            //         // data: "ok"
+            //         data: url
+            //     }
+            // })
 
-            news.dataValues.QRCode = data.qrcode
+            // news.dataValues.QRCode = data.qrcode
             
             res.status(200).json(news)
         } catch (err) {
